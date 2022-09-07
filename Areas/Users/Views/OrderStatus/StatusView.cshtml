@@ -1,0 +1,57 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "StatusView";
+}
+<center>
+<h1 style="color:blue;">Orders Status</h1>
+</center>
+@model IEnumerable<OnlineRestaurant.Web.Models.OrderStatus>
+
+@{
+    ViewData["Title"] = "StatusView";
+}
+
+
+ 
+<table class="table" style="background-color:antiquewhite;">
+    <thead>
+        <tr >
+            <th>
+                @Html.DisplayNameFor(model => model.FoodOrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (@UserManager.GetUserName(User) == item.Order.CustomerEmail)
+            {
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.FoodOrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.CustomerEmail)
+                </td>
+                <td>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+

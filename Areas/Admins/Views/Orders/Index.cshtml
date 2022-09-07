@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OnlineRestaurant.Web.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blueviolet;">Orders</h1>
+</center>
+<table class="table" style="background-color:darkgray;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderedFoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderedQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderedFoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderedQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodCategory.FoodCategoryName)
+            </td>
+            <td>
+                   <a  asp-area="Admins" asp-controller="OrderStatus" asp-action="Create">Approval</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

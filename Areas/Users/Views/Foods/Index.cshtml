@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnlineRestaurant.Web.Models.Food>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<center>
+<h1 style="color:blueviolet;">Food Items</h1>
+</center>
+
+<table class="table" style="background-color:antiquewhite;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodCategory.FoodCategoryName)
+            </td>
+            <td>
+                    <a asp-area="Users" asp-controller="Orders" asp-action="Create">Order Now</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

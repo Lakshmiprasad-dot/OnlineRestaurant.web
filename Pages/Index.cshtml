@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center" style="height:120px;border-radius:10px;background-color:aquamarine;">
+    <h1 class="display-4" style="text-shadow:0px 0px 10px red;padding:20px;"><b>Welcome to Food World</b></h1>
+   
+</div>
+<br></br>
+<img src="~/Images/Food-Blogs-1.jpg" style="height:600px;width:100%;border-radius:25px;"/>
+<br /><br />
+
+<h2>Hello user ! , If you are not registered Please Registere Here .... </h2><br />
+<a asp-area="Identity" asp-page="/Account/Register"><button style="width:250px;height:70px;color:indigo;text-align:center;border-radius:10px;background-color:lightseagreen;"><h5>Register Now</h5></button></a>
+
+<br /><br /><br />
+<h4 style="color:crimson;">Please Choose Your Orders...!  Here ....And Then Create Your Orders ...</h4>
+<br />
+<style>
+    td{
+        padding:10px;
+    }
+</style>
+<table>
+    <tr>
+        <td>
+            <div class="item active">
+              <img src="~/Images/img1.gif" alt="Biryani" style="width:600px;height:400px;border-radius:20px;">
+            </div>
+        </td>
+        <td>
+           <a asp-area="Users" asp-controller="Orders" asp-action="Create">
+            <button style="width:150px;height:60px;color:red;text-align:center;border-radius:5px;background-color:cadetblue;"><b>Order Now</b></button></a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <div class="item">
+          <img src="~/Images/img2.jpg" alt="Pizza" style="width:600px;height:400px;border-radius:20px;">
+        </div>
+        </td>
+        <td>
+            <a asp-area="Users" asp-controller="Orders" asp-action="Create">
+            <button style="width:150px;height:60px;color:red;text-align:center;border-radius:5px;background-color:cadetblue;"><b>Order Now</b></button></a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="item">
+              <img src="~/Images/img3.webp" alt="Dosa" style="width:600px;height:400px;border-radius:20px;">
+            </div>
+        </td>
+        <td style="padding-right:30px;">
+            <a asp-area="Users" asp-controller="Orders" asp-action="Create">
+            <button style="width:150px;height:60px;color:red;text-align:center;border-radius:5px;background-color:cadetblue;"><b>Order Now</b></button></a>
+        </td>
+    </tr>
+ </table> 
+ <br />
+ <h3 style="color:fuchsia;">List Of Food Items Available ...! Click Here ..!</h3>
+<a asp-area="Users" asp-controller="Foods" asp-action="Index">
+            <button style="width:200px;height:70px;color:orangered;text-align:center;border-radius:5px;"><b>List Of Items</b></button></a>
